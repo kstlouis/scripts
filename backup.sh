@@ -17,7 +17,7 @@ mount UUID=6ed204f4-2410-4c96-862d-0f7c03bc7461 /tmp/backup_mnt
 if mountpoint -q /tmp/backup_mnt; then
    echo "backup drive mounted successfully"
    # perform rsync run here
-   rsync -aH --stats --partial --delete --max-delete=30 /Data/ /tmp/backup_mnt
+   rsync -aH --stats --partial --delete --delete-excluded --force /Data/ /tmp/backup_mnt
 else
    echo "Error: drive not mounted."
    exit 1
